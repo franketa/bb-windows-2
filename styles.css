@@ -14,7 +14,7 @@ body {
   font-size: var(--font-size-base);
   line-height: 1.6;
   color: var(--text-color);
-  background: var(--gradient-primary);
+  background: var(--gradient-background);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -29,10 +29,10 @@ body {
 
 /* Header */
 .site-header {
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
+  background: var(--bg-color-white);
   padding: var(--spacing-md) 0;
   position: relative;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
 .site-header .container {
@@ -42,7 +42,7 @@ body {
 }
 
 .back-arrow {
-  color: var(--text-color-white);
+  color: var(--text-color);
   font-size: var(--font-size-lg);
   cursor: pointer;
   padding: var(--spacing-sm);
@@ -52,7 +52,7 @@ body {
 }
 
 .back-arrow:hover {
-  background: rgba(255, 255, 255, 0.1);
+  background: var(--bg-color-light);
 }
 
 .back-arrow.visible {
@@ -76,8 +76,9 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: var(--spacing-xl) 0;
+  padding: var(--spacing-xxxl) 0;
   position: relative;
+  min-height: 80vh;
 }
 
 .hero-banner .container {
@@ -142,12 +143,13 @@ body {
 .form-container {
   background: var(--bg-color-white);
   border-radius: var(--border-radius-xl);
-  box-shadow: var(--box-shadow-xl);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   width: 100%;
   max-width: 500px;
   min-width: 400px;
   flex-shrink: 0;
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 /* Form Structure */
@@ -603,7 +605,7 @@ body {
 
 /* Brand Section */
 .brand-section {
-  background: var(--bg-color-white);
+  background: var(--bg-color-light);
   padding: var(--spacing-xl) 0;
   text-align: center;
 }
@@ -651,7 +653,7 @@ body {
 
 /* Benefits Section */
 .benefits {
-  background: var(--bg-color-light);
+  background: var(--bg-color-white);
   padding: var(--spacing-xl) 0;
 }
 
@@ -709,12 +711,12 @@ body {
 
 /* Footer */
 .footer {
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  color: var(--text-color-white);
+  background: var(--bg-color-white);
+  color: var(--text-color);
   text-align: center;
   padding: var(--spacing-lg) 0;
   margin-top: auto;
+  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.05);
 }
 
 .footer p {
@@ -723,16 +725,22 @@ body {
 }
 
 .footer a {
-  color: var(--text-color-white);
+  color: var(--text-color);
   text-decoration: none;
 }
 
 .footer a:hover {
   text-decoration: underline;
+  color: var(--primary-color);
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
+  .hero-banner {
+    min-height: auto;
+    padding: var(--spacing-xl) 0;
+  }
+
   .hero-banner .container {
     flex-direction: column;
     gap: var(--spacing-xl);
@@ -754,6 +762,7 @@ body {
   .form-container {
     margin: 0 var(--spacing-md);
     min-width: auto;
+    border: none;
   }
   
   .step-inner {
