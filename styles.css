@@ -65,8 +65,9 @@ body {
 }
 
 .logo-icon {
-  height: 40px;
+  height: 25px;
   width: auto;
+  max-width: 100%;
 }
 
 /* Hero Banner */
@@ -81,14 +82,17 @@ body {
 
 .hero-banner .container {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  max-width: 600px;
+  gap: var(--spacing-xxxl);
+  max-width: 1200px;
 }
 
 .hero-content {
-  text-align: center;
-  margin-bottom: var(--spacing-xl);
+  flex: 1;
+  text-align: left;
+  margin-bottom: 0;
+  max-width: 600px;
 }
 
 .hero-content h1 {
@@ -142,7 +146,8 @@ body {
   overflow: hidden;
   width: 100%;
   max-width: 500px;
-  margin: 0 auto;
+  min-width: 400px;
+  flex-shrink: 0;
 }
 
 /* Form Structure */
@@ -728,17 +733,27 @@ body {
 
 /* Responsive Design */
 @media (max-width: 768px) {
+  .hero-banner .container {
+    flex-direction: column;
+    gap: var(--spacing-xl);
+  }
+
+  .hero-content {
+    text-align: center;
+    margin-bottom: var(--spacing-lg);
+  }
+
   .hero-content h1 {
     font-size: var(--font-size-xxl);
   }
   
   .service-icons {
-    grid-template-columns: repeat(2, 1fr);
-    gap: var(--spacing-md);
+    display: none;
   }
   
   .form-container {
     margin: 0 var(--spacing-md);
+    min-width: auto;
   }
   
   .step-inner {

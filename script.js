@@ -10,6 +10,20 @@ function showStep(stepNumber) {
 
     updateProgress(stepNumber);
     updateHeaderBackArrow(stepNumber);
+    
+    // Handle hero content visibility
+    const heroTitle = document.querySelector('.hero-content h1');
+    const serviceIcons = document.querySelector('.service-icons');
+    
+    if (stepNumber === 1) {
+        // Show hero title and service icons on step 1
+        if (heroTitle) heroTitle.style.display = '';
+        if (serviceIcons) serviceIcons.style.display = '';
+    } else {
+        // Hide hero title and service icons on other steps
+        if (heroTitle) heroTitle.style.display = 'none';
+        if (serviceIcons) serviceIcons.style.display = 'none';
+    }
 }
 
 function updateProgress(currentStep) {
@@ -69,14 +83,14 @@ document.addEventListener('DOMContentLoaded', function () {
     
         this.querySelector('.btn-spinner').style.display = 'inline-block';
     
-        setTimeout(() => {
+                setTimeout(() => {
             if (zipInput.value.match(/^\d{5}$/)) {
                 zipError.style.display = 'none';
                 showStep(2);
             } else {
                 zipError.style.display = 'block';
             }
-    
+
             this.querySelector('.btn-spinner').style.display = 'none';
         }, 800);
     });
