@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Compare Home Window Prices | Get Free Quotes</title>
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
 <body>
@@ -67,225 +67,290 @@
                             <div class="progress-dot" data-step="4"></div>
                             <div class="progress-line"></div>
                             <div class="progress-dot" data-step="5"></div>
+                            <div class="progress-line"></div>
+                            <div class="progress-dot" data-step="6"></div>
                         </div>
                     </div>
                     
                     <!-- Step 1: ZIP Code -->
                     <div class="step active" id="step1" data-step="1">
                         <div class="step-inner">
-                            <div class="step-header">
-                                <p class="step-header-title">Compare Home Windows <b><em>Prices</em></b> Today!</p>
-                            </div>
                             <div class="step-content">
-                                <p class="step-title">What is your zip code?</p>
+                                <h2 class="step-title">Where do you need the window professional?</h2>
                                 <div class="step-fields">
                                     <div class="form-group">
+                                        <label for="zip" class="field-label">Zip Code</label>
                                         <div class="form-input-group">
                                             <input class="form-input zip" name="zip" id="zip" type="text" 
-                                                   pattern="[0-9]*" maxlength="5" required data-required="zip" placeholder=" ">
-                                            <label for="zip" class="form-group-label">ZIP Code</label>
-                                            <span class="form-input-group-icon">
-                                                <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
-                                            </span>
+                                                   pattern="[0-9]*" maxlength="5" required data-required="zip" 
+                                                   placeholder="ZIP Code">
                                         </div>
                                         <p id="error-zip" class="form-group-error-message">Please enter a valid ZIP code.</p>
                                     </div>
                                 </div>
-                                <button class="btn btn-primary" type="button" id="step1-button">
-                                    <span class="btn-text">GO</span>
-                                    <span class="btn-spinner"></span>
-                                </button>
-                                <div class="form-arrow-indicator">
-                                    <img src="https://cdn-icons-png.flaticon.com/512/271/271226.png" alt="Arrow" class="arrow-icon">
+                                <div class="why-ask-section">
+                                    <div class="why-ask-icon">
+                                        <i class="fas fa-lightbulb"></i>
+                                    </div>
+                                    <div class="why-ask-text">
+                                        <strong>Why do we ask?</strong><br>
+                                        Your zip code is used to find the best available professionals in your area.
+                                    </div>
+                                </div>
+                                <div class="step-navigation">
+                                    <button class="btn btn-back" type="button" style="visibility: hidden;">
+                                        <i class="fas fa-arrow-left"></i>
+                                    </button>
+                                    <button class="btn btn-primary" type="button" id="step1-button">
+                                        <span class="btn-text">Next</span>
+                                        <i class="fas fa-arrow-right"></i>
+                                        <span class="btn-spinner"></span>
+                                    </button>
                                 </div>
                             </div>
                         </div>
                     </div>
                     
-                    <!-- Step 2: Project Scope -->
+                    <!-- Step 2: Replace or Repair -->
                     <div class="step" id="step2" data-step="2">
                         <div class="step-inner">
-                            <div class="step-header">
-                                <p class="step-header-title">Tell us about your <b><em>windows project</em></b></p>
-                            </div>
                             <div class="step-content">
-                                <p class="step-title">What is the nature of your windows project?</p>
-                                <div class="step-fields radio-group">
-                                    <label class="radio-button-label">
-                                        <input type="radio" name="WindowsProjectScope" value="Replace Existing Windows">
-                                        <span class="radio-button-custom"></span>
-                                        <span class="radio-button-text">Replace Existing Windows</span>
-                                    </label>
-                                    <label class="radio-button-label">
-                                        <input type="radio" name="WindowsProjectScope" value="Install New Windows">
-                                        <span class="radio-button-custom"></span>
-                                        <span class="radio-button-text">Install New Windows</span>
-                                    </label>
-                                    <label class="radio-button-label">
-                                        <input type="radio" name="WindowsProjectScope" value="Not Sure Yet">
-                                        <span class="radio-button-custom"></span>
-                                        <span class="radio-button-text">Not Sure Yet</span>
-                                    </label>
+                                <h2 class="step-title">Do you need to replace or repair your windows?</h2>
+                                <div class="step-fields">
+                                    <div class="visual-options-grid">
+                                        <label class="visual-option-card">
+                                            <input type="radio" name="WindowsProjectScope" value="Replace Windows">
+                                            <div class="visual-option-content">
+                                                <div class="visual-option-image">
+                                                    <i class="fas fa-window-maximize"></i>
+                                                </div>
+                                                <div class="visual-option-text">Replace Windows</div>
+                                            </div>
+                                        </label>
+                                        <label class="visual-option-card">
+                                            <input type="radio" name="WindowsProjectScope" value="Repair Windows">
+                                            <div class="visual-option-content">
+                                                <div class="visual-option-image">
+                                                    <i class="fas fa-tools"></i>
+                                                </div>
+                                                <div class="visual-option-text">Repair Windows</div>
+                                            </div>
+                                        </label>
+                                        <label class="visual-option-card">
+                                            <input type="radio" name="WindowsProjectScope" value="Not Sure">
+                                            <div class="visual-option-content">
+                                                <div class="visual-option-image">
+                                                    <i class="fas fa-question"></i>
+                                                </div>
+                                                <div class="visual-option-text">Not Sure</div>
+                                            </div>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="step-navigation">
+                                    <button class="btn btn-back" type="button" onclick="showStep(1)">
+                                        <i class="fas fa-arrow-left"></i>
+                                    </button>
+                                    <button class="btn btn-primary" type="button" id="step2-button">
+                                        <span class="btn-text">Next</span>
+                                        <i class="fas fa-arrow-right"></i>
+                                        <span class="btn-spinner"></span>
+                                    </button>
                                 </div>
                             </div>
                         </div>
                     </div>
                     
-                    <!-- Step 3: Home Ownership -->
+                    <!-- Step 3: Number of Windows -->
                     <div class="step" id="step3" data-step="3">
                         <div class="step-inner">
-                            <div class="step-header">
-                                <p class="step-header-title">Tell us about your <b><em>home ownership</em></b></p>
-                            </div>
                             <div class="step-content">
-                                <p class="step-title">Do you own your home?</p>
-                                <div class="step-fields radio-group">
-                                    <label class="radio-button-label">
-                                        <input type="radio" name="HomeOwnership" value="Yes">
-                                        <span class="radio-button-custom"></span>
-                                        <span class="radio-button-text">Yes</span>
-                                    </label>
-                                    <label class="radio-button-label">
-                                        <input type="radio" name="HomeOwnership" value="No, but I'm allowed to make changes">
-                                        <span class="radio-button-custom"></span>
-                                        <span class="radio-button-text">No, but I'm allowed to make changes</span>
-                                    </label>
-                                    <label class="radio-button-label">
-                                        <input type="radio" name="HomeOwnership" value="No">
-                                        <span class="radio-button-custom"></span>
-                                        <span class="radio-button-text">No</span>
-                                    </label>
+                                <h2 class="step-title">How many windows do you need work on?</h2>
+                                <div class="step-fields">
+                                    <div class="number-options">
+                                        <label class="number-option">
+                                            <input type="radio" name="NumberOfWindows" value="1">
+                                            <span class="number-option-text">1</span>
+                                        </label>
+                                        <label class="number-option">
+                                            <input type="radio" name="NumberOfWindows" value="2">
+                                            <span class="number-option-text">2</span>
+                                        </label>
+                                        <label class="number-option">
+                                            <input type="radio" name="NumberOfWindows" value="3-5">
+                                            <span class="number-option-text">3-5</span>
+                                        </label>
+                                        <label class="number-option">
+                                            <input type="radio" name="NumberOfWindows" value="6+">
+                                            <span class="number-option-text">6+</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="why-ask-section">
+                                    <div class="why-ask-icon">
+                                        <i class="fas fa-lightbulb"></i>
+                                    </div>
+                                    <div class="why-ask-text">
+                                        <strong>Why do we ask?</strong><br>
+                                        This information helps local professionals to provide you with the most accurate quote.
+                                    </div>
+                                </div>
+                                <div class="step-navigation">
+                                    <button class="btn btn-back" type="button" onclick="showStep(2)">
+                                        <i class="fas fa-arrow-left"></i>
+                                    </button>
+                                    <button class="btn btn-primary" type="button" id="step3-button">
+                                        <span class="btn-text">Next</span>
+                                        <i class="fas fa-arrow-right"></i>
+                                        <span class="btn-spinner"></span>
+                                    </button>
                                 </div>
                             </div>
                         </div>
                     </div>
                     
-                    <!-- Step 4: Number of Windows (previously Step 3) -->
+                    <!-- Step 4: Project Address -->
                     <div class="step" id="step4" data-step="4">
                         <div class="step-inner">
-                            <div class="step-header">
-                                <p class="step-header-title">Tell us about the <b><em>number of windows</em></b></p>
-                            </div>
                             <div class="step-content">
-                                <p class="step-title">How many windows are involved in your project?</p>
-                                <div class="step-fields radio-group">
-                                    <label class="radio-button-label">
-                                        <input type="radio" name="NumberOfWindows" value="1">
-                                        <span class="radio-button-custom"></span>
-                                        <span class="radio-button-text">1 Window</span>
-                                    </label>
-                                    <label class="radio-button-label">
-                                        <input type="radio" name="NumberOfWindows" value="2-5">
-                                        <span class="radio-button-custom"></span>
-                                        <span class="radio-button-text">2-5 Windows</span>
-                                    </label>
-                                    <label class="radio-button-label">
-                                        <input type="radio" name="NumberOfWindows" value="6-10">
-                                        <span class="radio-button-custom"></span>
-                                        <span class="radio-button-text">6-10 Windows</span>
-                                    </label>
-                                    <label class="radio-button-label">
-                                        <input type="radio" name="NumberOfWindows" value="More than 10">
-                                        <span class="radio-button-custom"></span>
-                                        <span class="radio-button-text">More than 10 Windows</span>
-                                    </label>
-                                </div>
-                                
-                                <div class="step-extra">
-                                    <p class="step-title">Would you be open to a quote for multiple windows?</p>
-                                    <div class="step-fields radio-group">
-                                        <label class="radio-button-label">
-                                            <input type="radio" name="MultipleWindows" value="Yes">
-                                            <span class="radio-button-custom"></span>
-                                            <span class="radio-button-text">Yes</span>
-                                        </label>
-                                        <label class="radio-button-label">
-                                            <input type="radio" name="MultipleWindows" value="No">
-                                            <span class="radio-button-custom"></span>
-                                            <span class="radio-button-text">No</span>
+                                <h2 class="step-title">Where will this project take place?</h2>
+                                <div class="step-fields">
+                                    <div class="form-group">
+                                        <label for="address" class="field-label">Street Address <span class="privacy-note">We respect your privacy</span></label>
+                                        <div class="form-input-group">
+                                            <input class="form-input" name="address" id="address" type="text" 
+                                                   required placeholder="123 Your St.">
+                                        </div>
+                                        <div class="location-indicator">
+                                            <span class="location-text">Washington, DC</span>
+                                            <i class="fas fa-edit"></i>
+                                        </div>
+                                        <p id="error-address" class="form-group-error-message">Please enter your street address.</p>
+                                    </div>
+                                    <div class="form-group checkbox-group">
+                                        <label class="checkbox-label">
+                                            <input type="checkbox" name="propertyOwner" id="propertyOwner" checked>
+                                            <span class="checkbox-custom"></span>
+                                            <span class="checkbox-text">I am the owner of this property or authorized to make changes to it.</span>
                                         </label>
                                     </div>
+                                </div>
+                                <div class="why-ask-section">
+                                    <div class="why-ask-icon">
+                                        <i class="fas fa-lightbulb"></i>
+                                    </div>
+                                    <div class="why-ask-text">
+                                        <strong>Why do we ask?</strong><br>
+                                        Your address helps us find the best local professionals that service your location.
+                                    </div>
+                                </div>
+                                <div class="security-badge">
+                                    <i class="fas fa-lock"></i>
+                                    <span>Your information is secure</span>
+                                </div>
+                                <div class="step-navigation">
+                                    <button class="btn btn-back" type="button" onclick="showStep(3)">
+                                        <i class="fas fa-arrow-left"></i>
+                                    </button>
+                                    <button class="btn btn-primary" type="button" id="step4-button">
+                                        <span class="btn-text">Next</span>
+                                        <i class="fas fa-arrow-right"></i>
+                                        <span class="btn-spinner"></span>
+                                    </button>
                                 </div>
                             </div>
                         </div>
                     </div>
                     
-                    <!-- Step 5: Contact Information (previously Step 4) -->
+                    <!-- Step 5: Name Collection -->
                     <div class="step" id="step5" data-step="5">
                         <div class="step-inner">
-                            <div class="step-header">
-                                <p class="step-header-title">Almost there! <b><em>Your contact details</em></b></p>
-                            </div>
                             <div class="step-content">
-                                <p class="step-title">Please provide your contact information to receive quotes</p>
+                                <h2 class="step-title">Please enter your full name.</h2>
                                 <div class="step-fields">
-                                    <div class="form-row">
-                                        <div class="form-group">
-                                            <div class="form-input-group">
-                                                <input class="form-input" name="firstName" id="firstName" type="text" required placeholder=" ">
-                                                <label for="firstName" class="form-group-label">First Name</label>
-                                                <span class="form-input-group-icon">
-                                                    <i class="fas fa-user" aria-hidden="true"></i>
-                                                </span>
-                                            </div>
-                                            <p id="error-firstName" class="form-group-error-message">Please enter your first name.</p>
+                                    <div class="form-group">
+                                        <label for="firstName" class="field-label">First Name</label>
+                                        <div class="form-input-group">
+                                            <input class="form-input" name="firstName" id="firstName" type="text" 
+                                                   required placeholder="First Name">
                                         </div>
-                                        <div class="form-group">
-                                            <div class="form-input-group">
-                                                <input class="form-input" name="lastName" id="lastName" type="text" required placeholder=" ">
-                                                <label for="lastName" class="form-group-label">Last Name</label>
-                                                <span class="form-input-group-icon">
-                                                    <i class="fas fa-user" aria-hidden="true"></i>
-                                                </span>
-                                            </div>
-                                            <p id="error-lastName" class="form-group-error-message">Please enter your last name.</p>
-                                        </div>
+                                        <p id="error-firstName" class="form-group-error-message">Please enter your first name.</p>
                                     </div>
                                     <div class="form-group">
+                                        <label for="lastName" class="field-label">Last Name</label>
                                         <div class="form-input-group">
-                                            <input class="form-input" name="email" id="email" type="email" required placeholder=" ">
-                                            <label for="email" class="form-group-label">Email Address</label>
-                                            <span class="form-input-group-icon">
-                                                <i class="fas fa-envelope" aria-hidden="true"></i>
-                                            </span>
+                                            <input class="form-input" name="lastName" id="lastName" type="text" 
+                                                   required placeholder="Last Name">
+                                        </div>
+                                        <p id="error-lastName" class="form-group-error-message">Please enter your last name.</p>
+                                    </div>
+                                </div>
+                                <div class="why-ask-section">
+                                    <div class="why-ask-icon">
+                                        <i class="fas fa-lightbulb"></i>
+                                    </div>
+                                    <div class="why-ask-text">
+                                        <strong>Why do we ask?</strong><br>
+                                        If we find local professional matches, we will let them know who they will be speaking with.
+                                    </div>
+                                </div>
+                                <div class="security-badge">
+                                    <i class="fas fa-lock"></i>
+                                    <span>Your information is secure</span>
+                                </div>
+                                <div class="step-navigation">
+                                    <button class="btn btn-back" type="button" onclick="showStep(4)">
+                                        <i class="fas fa-arrow-left"></i>
+                                    </button>
+                                    <button class="btn btn-primary" type="button" id="step5-button">
+                                        <span class="btn-text">Next</span>
+                                        <i class="fas fa-arrow-right"></i>
+                                        <span class="btn-spinner"></span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Step 6: Final Contact & Submit -->
+                    <div class="step" id="step6" data-step="6">
+                        <div class="step-inner">
+                            <div class="step-content">
+                                <h2 class="step-title">We have matching pros in your area!</h2>
+                                <p class="step-subtitle">Up to 4 local contractors will reach out with their best prices.</p>
+                                <div class="step-fields">
+                                    <div class="form-group">
+                                        <label for="email" class="field-label">Email Address</label>
+                                        <div class="form-input-group">
+                                            <input class="form-input" name="email" id="email" type="email" 
+                                                   required placeholder="email@domain.com">
                                         </div>
                                         <p id="error-email" class="form-group-error-message">Please enter a valid email address.</p>
                                     </div>
                                     <div class="form-group">
+                                        <label for="phone" class="field-label">Phone Number</label>
                                         <div class="form-input-group">
-                                            <input class="form-input" name="phone" id="phone" type="tel" required placeholder=" ">
-                                            <label for="phone" class="form-group-label">Phone Number</label>
-                                            <span class="form-input-group-icon">
-                                                <i class="fas fa-phone" aria-hidden="true"></i>
-                                            </span>
+                                            <input class="form-input" name="phone" id="phone" type="tel" 
+                                                   required placeholder="(555) 123-4567">
                                         </div>
                                         <p id="error-phone" class="form-group-error-message">Please enter a valid phone number.</p>
                                     </div>
-                                    <div class="form-group checkbox-group">
-                                        <label class="checkbox-label">
-                                            <p class="optin-text">By submitting, you authorize Modernize and up to four home improvement companies, to make marketing calls and texts to the phone number provided to discuss your home improvement project. You understand some may use auto-dialers, SMS messages, artificial and prerecorded voice messages to contact you. There is no requirement to purchase services. Please see our Privacy Notice and Terms of Use.</p>
-                                        </label>
-                                        <p id="error-terms" class="form-group-error-message">You must agree to the terms to continue.</p>
-                                    </div>
                                 </div>
-                                <div class="step-buttons">
-                                    <button class="btn btn-primary" type="submit" id="submit-form">
-                                        <span class="btn-text">Get Free Quotes</span>
+                                <div class="optin-section">
+                                    <p class="optin-text">By submitting, you authorize Modernize and up to four <a href="terms.html">home improvement companies</a>, to make marketing calls and texts to the phone number provided to discuss your home improvement project. You understand some may use auto-dialers, SMS messages, artificial and prerecorded voice messages to contact you. There is no requirement to purchase services. Please see our <a href="privacy.html">Privacy Notice</a> and <a href="terms.html">Terms of Use</a>.</p>
+                                </div>
+                                <div class="step-navigation">
+                                    <button class="btn btn-back" type="button" onclick="showStep(5)">
+                                        <i class="fas fa-arrow-left"></i>
+                                    </button>
+                                    <button class="btn btn-primary btn-get-prices" type="submit" id="submit-form">
+                                        <span class="btn-text">Get Prices</span>
+                                        <i class="fas fa-arrow-right"></i>
                                         <span class="btn-spinner"></span>
                                     </button>
                                 </div>
-                                <div class="form-footer">
-                                    <div class="trust-badges">
-                                        <div class="trust-badge">
-                                            <i class="fas fa-lock"></i> Secure
-                                        </div>
-                                        <div class="trust-badge">
-                                            <i class="fas fa-check-circle"></i> No Obligation
-                                        </div>
-                                        <div class="trust-badge">
-                                            <i class="fas fa-shield-alt"></i> Privacy Protected
-                                        </div>
-                                    </div>
+                                <div class="bbb-accredited">
+                                    <img src="https://seal-alaskabbb.bbb.org/seals/blue-seal-293-100-whitetxt-bbb-83041090.png" alt="BBB Accredited Business" class="bbb-logo">
                                 </div>
                             </div>
                         </div>

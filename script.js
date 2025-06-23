@@ -33,12 +33,10 @@ function updateHeaderBackArrow(currentStep) {
 }
 
 document.addEventListener('DOMContentLoaded', function () {
-    const steps = document.querySelectorAll('.step');
     const form = document.getElementById('windows-quote-form');
-    const progressDots = document.querySelectorAll('.progress-dot');
-    const progressLines = document.querySelectorAll('.progress-line');
     const headerBackArrow = document.getElementById('header-back-arrow');
     
+    // Header back arrow functionality
     if (headerBackArrow) {
         headerBackArrow.addEventListener('click', function() {
             const currentStep = document.querySelector('.step.active');
@@ -46,27 +44,18 @@ document.addEventListener('DOMContentLoaded', function () {
                 const currentStepNumber = parseInt(currentStep.dataset.step);
                 if (currentStepNumber > 1) {
                     showStep(currentStepNumber - 1);
-                    
-                    if (currentStepNumber - 1 === 1 && window.innerWidth <= 576) {
-                        const brandSection = document.querySelector('.brand-section');
-                        const benefits = document.querySelector('.benefits');
-                        const heroTitle = document.querySelector('.hero-title');
-                        
-                        if (brandSection) brandSection.style.display = '';
-                        if (benefits) benefits.style.display = '';
-                        if (heroTitle) heroTitle.style.display = '';
-                    }
                 }
             }
         });
     }
     
+    // Initialize
     showStep(1);
-
     document.querySelectorAll('.form-group-error-message').forEach(error => {
         error.style.display = 'none';
     });
 
+    // Step 1: ZIP Code validation
     document.getElementById('step1-button').addEventListener('click', function () {
         const zipInput = document.getElementById('zip');
         const zipError = document.getElementById('error-zip');
@@ -84,18 +73,6 @@ document.addEventListener('DOMContentLoaded', function () {
             if (zipInput.value.match(/^\d{5}$/)) {
                 zipError.style.display = 'none';
                 showStep(2);
-    
-                if (window.innerWidth <= 576) {
-                    const brandSection = document.querySelector('.brand-section');
-                    const benefits = document.querySelector('.benefits');
-                    const heroTitle = document.querySelector('.hero-title');
-                    const heroBanner = document.querySelector('.hero-banner');
-    
-                    if (brandSection) brandSection.style.display = 'none';
-                    if (benefits) benefits.style.display = 'none';
-                    if (heroTitle) heroTitle.style.display = 'none';
-                    if (heroBanner) heroBanner.classList.add('hero-banner-active');
-                }
             } else {
                 zipError.style.display = 'block';
             }
@@ -104,91 +81,102 @@ document.addEventListener('DOMContentLoaded', function () {
         }, 800);
     });
 
-    window.addEventListener('resize', function () {
-        const currentStep = document.querySelector('.step.active');
-        if (currentStep && currentStep.dataset.step === '2') {
-            const brandSection = document.querySelector('.brand-section');
-            const benefits = document.querySelector('.benefits');
-            const heroTitle = document.querySelector('.hero-title');
-
-            if (window.innerWidth <= 576) {
-                if (brandSection) brandSection.style.display = 'none';
-                if (benefits) benefits.style.display = 'none';
-                if (heroTitle) heroTitle.style.display = 'none';
-            } else {
-                if (brandSection) brandSection.style.display = '';
-                if (benefits) benefits.style.display = '';
-                if (heroTitle) heroTitle.style.display = '';
-            }
-        }
-    });
-
+    // ZIP code input formatting
     document.getElementById('zip').addEventListener('input', function (e) {
         this.value = this.value.replace(/[^0-9]/g, '');
     });
 
-    const windowsNumberInputs = document.querySelectorAll('input[name="NumberOfWindows"]');
-    const multipleWindowsSection = document.querySelector('.step-extra');
-
-    if (multipleWindowsSection) {
-        windowsNumberInputs.forEach(input => {
-            input.addEventListener('change', function () {
-                if (this.value === '1') {
-                    multipleWindowsSection.style.display = 'block';
-                } else {
-                    multipleWindowsSection.style.display = 'none';
-                    document.querySelectorAll('input[name="MultipleWindows"]').forEach(radio => {
-                        radio.checked = false;
-                    });
-                }
-            });
-        });
-
-        multipleWindowsSection.style.display = 'none';
-    }
-
-    const radioButtons = document.querySelectorAll('.radio-button-label');
-    radioButtons.forEach(button => {
-        button.addEventListener('click', function () {
+    // Step 2: Visual option cards (Replace/Repair)
+    const visualOptionCards = document.querySelectorAll('.visual-option-card');
+    visualOptionCards.forEach(card => {
+        card.addEventListener('click', function () {
             const radio = this.querySelector('input[type="radio"]');
             if (radio) {
                 radio.checked = true;
-
-                if (radio.name === 'NumberOfWindows') {
-                    radio.dispatchEvent(new Event('change'));
-                }
-
-                const currentStep = parseInt(this.closest('.step').dataset.step);
-
-                if (radio.name === 'WindowsProjectScope') {
-                    setTimeout(() => showStep(currentStep + 1), 500);
-                }
-
-                if (radio.name === 'HomeOwnership') {
-                    setTimeout(() => showStep(currentStep + 1), 500);
-                }
-
-                if (radio.name === 'NumberOfWindows' && radio.value !== '1') {
-                    setTimeout(() => showStep(currentStep + 1), 500);
-                }
-
-                if (radio.name === 'MultipleWindows' && currentStep === 4) {
-                    setTimeout(() => showStep(currentStep + 1), 500);
-                }
+                
+                // Auto-advance after selection
+                setTimeout(() => {
+                    showStep(3);
+                }, 500);
             }
         });
     });
 
-    function validateEmail(email) {
-        const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-        return re.test(String(email).toLowerCase());
+    // Step 3: Number options
+    const numberOptions = document.querySelectorAll('.number-option');
+    numberOptions.forEach(option => {
+        option.addEventListener('click', function () {
+            const radio = this.querySelector('input[type="radio"]');
+            if (radio) {
+                radio.checked = true;
+                
+                // Auto-advance after selection
+                setTimeout(() => {
+                    showStep(4);
+                }, 500);
+            }
+        });
+    });
+
+    // Step 4: Address validation
+    const step4Button = document.getElementById('step4-button');
+    if (step4Button) {
+        step4Button.addEventListener('click', function () {
+            const addressInput = document.getElementById('address');
+            const addressError = document.getElementById('error-address');
+
+            this.querySelector('.btn-spinner').style.display = 'inline-block';
+
+            setTimeout(() => {
+                if (addressInput.value.trim()) {
+                    addressError.style.display = 'none';
+                    showStep(5);
+                } else {
+                    addressError.style.display = 'block';
+                }
+
+                this.querySelector('.btn-spinner').style.display = 'none';
+            }, 300);
+        });
     }
 
-    function validatePhone(phone) {
-        const re = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/;
-        return re.test(String(phone));
+    // Step 5: Name validation
+    const step5Button = document.getElementById('step5-button');
+    if (step5Button) {
+        step5Button.addEventListener('click', function () {
+            const firstName = document.getElementById('firstName');
+            const lastName = document.getElementById('lastName');
+            const firstNameError = document.getElementById('error-firstName');
+            const lastNameError = document.getElementById('error-lastName');
+
+            // Hide all errors first
+            firstNameError.style.display = 'none';
+            lastNameError.style.display = 'none';
+
+            let isValid = true;
+
+            if (!firstName.value.trim()) {
+                firstNameError.style.display = 'block';
+                isValid = false;
+            }
+
+            if (!lastName.value.trim()) {
+                lastNameError.style.display = 'block';
+                isValid = false;
+            }
+
+            if (isValid) {
+                this.querySelector('.btn-spinner').style.display = 'inline-block';
+
+                setTimeout(() => {
+                    showStep(6);
+                    this.querySelector('.btn-spinner').style.display = 'none';
+                }, 300);
+            }
+        });
     }
 
+    // Final form submission
     document.getElementById('submit-form').addEventListener('click', function (e) {
         e.preventDefault();
 
@@ -196,7 +184,6 @@ document.addEventListener('DOMContentLoaded', function () {
         const lastName = document.getElementById('lastName');
         const email = document.getElementById('email');
         const phone = document.getElementById('phone');
-        const terms = document.getElementById('terms');
 
         document.querySelectorAll('.form-group-error-message').forEach(error => {
             error.style.display = 'none';
@@ -234,9 +221,9 @@ document.addEventListener('DOMContentLoaded', function () {
         const formData = {
             zip: document.getElementById('zip').value,
             projectScope: document.querySelector('input[name="WindowsProjectScope"]:checked')?.value,
-            homeOwnership: document.querySelector('input[name="HomeOwnership"]:checked')?.value,
             numberOfWindows: document.querySelector('input[name="NumberOfWindows"]:checked')?.value,
-            multipleWindows: document.querySelector('input[name="MultipleWindows"]:checked')?.value,
+            address: document.getElementById('address').value,
+            propertyOwner: document.getElementById('propertyOwner').checked,
             firstName: firstName.value,
             lastName: lastName.value,
             email: email.value,
@@ -265,16 +252,32 @@ document.addEventListener('DOMContentLoaded', function () {
             });
     });
 
+    // Phone number formatting
     document.getElementById('phone').addEventListener('input', function (e) {
         let value = this.value.replace(/\D/g, '');
         if (value.length > 0) {
             if (value.length <= 3) {
-                this.value = value;
+                this.value = `(${value}`;
             } else if (value.length <= 6) {
-                this.value = value.slice(0, 3) + '-' + value.slice(3);
+                this.value = `(${value.slice(0, 3)}) ${value.slice(3)}`;
             } else {
-                this.value = value.slice(0, 3) + '-' + value.slice(3, 6) + '-' + value.slice(6, 10);
+                this.value = `(${value.slice(0, 3)}) ${value.slice(3, 6)}-${value.slice(6, 10)}`;
             }
         }
     });
+
+    // Email validation function
+    function validateEmail(email) {
+        const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        return re.test(String(email).toLowerCase());
+    }
+
+    // Phone validation function
+    function validatePhone(phone) {
+        const re = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/;
+        return re.test(String(phone).replace(/\D/g, ''));
+    }
 });
+
+// Make showStep available globally
+window.showStep = showStep;
