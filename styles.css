@@ -274,6 +274,11 @@ body {
   box-shadow: 0 0 0 3px var(--primary-color-transparent);
 }
 
+.form-input.error {
+  border-color: var(--error-color);
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.2);
+}
+
 .form-input::placeholder {
   color: var(--text-color-lighter);
 }
@@ -283,6 +288,11 @@ body {
   font-size: var(--font-size-sm);
   margin-top: var(--spacing-xs);
   display: none;
+  font-weight: var(--font-weight-medium);
+  background: rgba(239, 68, 68, 0.1);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--border-radius);
+  border-left: 3px solid var(--error-color);
 }
 
 .location-indicator {
@@ -311,7 +321,8 @@ body {
 
 .visual-option-card {
   flex: 1;
-  min-width: 120px;
+  width: 140px;
+  min-width: 140px;
   max-width: 140px;
   cursor: pointer;
   transition: all var(--transition-smooth);
@@ -357,15 +368,19 @@ body {
   color: var(--text-color);
 }
 
-/* Number Options */
+/* Number Options - Bar Style */
 .number-options {
   display: flex;
-  gap: var(--spacing-md);
-  justify-content: center;
-  flex-wrap: wrap;
+  background: var(--bg-color-light);
+  border-radius: var(--border-radius-full);
+  padding: 4px;
+  max-width: 320px;
+  margin: 0 auto;
+  border: 2px solid var(--border-color);
 }
 
 .number-option {
+  flex: 1;
   cursor: pointer;
   transition: all var(--transition-smooth);
 }
@@ -378,27 +393,25 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 80px;
-  height: 50px;
-  border: 2px solid var(--border-color);
-  border-radius: var(--border-radius);
+  height: 44px;
+  border-radius: var(--border-radius-full);
   font-size: var(--font-size-base);
   font-weight: var(--font-weight-semibold);
-  color: var(--text-color);
-  background: var(--bg-color-white);
+  color: var(--text-color-light);
+  background: transparent;
   transition: all var(--transition-smooth);
+  border: none;
 }
 
 .number-option:hover .number-option-text {
-  border-color: var(--primary-color);
-  transform: translateY(-2px);
-  box-shadow: var(--box-shadow);
+  color: var(--text-color);
 }
 
 .number-option input[type="radio"]:checked + .number-option-text {
-  border-color: var(--primary-color);
-  background: var(--primary-color);
-  color: var(--text-color-white);
+  background: var(--bg-color-white);
+  color: var(--primary-color);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  font-weight: var(--font-weight-bold);
 }
 
 /* Checkbox Styles */
@@ -798,11 +811,10 @@ body {
   }
   
   .number-options {
-    justify-content: center;
+    max-width: 280px;
   }
   
   .number-option-text {
-    width: 60px;
     height: 40px;
     font-size: var(--font-size-sm);
   }

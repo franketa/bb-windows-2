@@ -110,11 +110,27 @@ document.addEventListener('DOMContentLoaded', function () {
                 
                 // Auto-advance after selection
                 setTimeout(() => {
-                    showStep(3);
+                    if (validateStep2()) {
+                        showStep(3);
+                    }
                 }, 500);
             }
         });
     });
+
+    // Add Step 2 button validation
+    const step2Button = document.getElementById('step2-button');
+    if (step2Button) {
+        step2Button.addEventListener('click', function () {
+            if (validateStep2()) {
+                this.querySelector('.btn-spinner').style.display = 'inline-block';
+                setTimeout(() => {
+                    showStep(3);
+                    this.querySelector('.btn-spinner').style.display = 'none';
+                }, 300);
+            }
+        });
+    }
 
     // Step 3: Number options
     const numberOptions = document.querySelectorAll('.number-option');
@@ -126,31 +142,40 @@ document.addEventListener('DOMContentLoaded', function () {
                 
                 // Auto-advance after selection
                 setTimeout(() => {
-                    showStep(4);
+                    if (validateStep3()) {
+                        showStep(4);
+                    }
                 }, 500);
             }
         });
     });
 
+    // Add Step 3 button validation
+    const step3Button = document.getElementById('step3-button');
+    if (step3Button) {
+        step3Button.addEventListener('click', function () {
+            if (validateStep3()) {
+                this.querySelector('.btn-spinner').style.display = 'inline-block';
+                setTimeout(() => {
+                    showStep(4);
+                    this.querySelector('.btn-spinner').style.display = 'none';
+                }, 300);
+            }
+        });
+    }
+
     // Step 4: Address validation
     const step4Button = document.getElementById('step4-button');
     if (step4Button) {
         step4Button.addEventListener('click', function () {
-            const addressInput = document.getElementById('address');
-            const addressError = document.getElementById('error-address');
+            if (validateStep4()) {
+                this.querySelector('.btn-spinner').style.display = 'inline-block';
 
-            this.querySelector('.btn-spinner').style.display = 'inline-block';
-
-            setTimeout(() => {
-                if (addressInput.value.trim()) {
-                    addressError.style.display = 'none';
+                setTimeout(() => {
                     showStep(5);
-                } else {
-                    addressError.style.display = 'block';
-                }
-
-                this.querySelector('.btn-spinner').style.display = 'none';
-            }, 300);
+                    this.querySelector('.btn-spinner').style.display = 'none';
+                }, 300);
+            }
         });
     }
 
@@ -158,28 +183,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const step5Button = document.getElementById('step5-button');
     if (step5Button) {
         step5Button.addEventListener('click', function () {
-            const firstName = document.getElementById('firstName');
-            const lastName = document.getElementById('lastName');
-            const firstNameError = document.getElementById('error-firstName');
-            const lastNameError = document.getElementById('error-lastName');
-
-            // Hide all errors first
-            firstNameError.style.display = 'none';
-            lastNameError.style.display = 'none';
-
-            let isValid = true;
-
-            if (!firstName.value.trim()) {
-                firstNameError.style.display = 'block';
-                isValid = false;
-            }
-
-            if (!lastName.value.trim()) {
-                lastNameError.style.display = 'block';
-                isValid = false;
-            }
-
-            if (isValid) {
+            if (validateStep5()) {
                 this.querySelector('.btn-spinner').style.display = 'inline-block';
 
                 setTimeout(() => {
@@ -194,38 +198,7 @@ document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('submit-form').addEventListener('click', function (e) {
         e.preventDefault();
 
-        const firstName = document.getElementById('firstName');
-        const lastName = document.getElementById('lastName');
-        const email = document.getElementById('email');
-        const phone = document.getElementById('phone');
-
-        document.querySelectorAll('.form-group-error-message').forEach(error => {
-            error.style.display = 'none';
-        });
-
-        let isValid = true;
-
-        if (!firstName.value.trim()) {
-            document.getElementById('error-firstName').style.display = 'block';
-            isValid = false;
-        }
-
-        if (!lastName.value.trim()) {
-            document.getElementById('error-lastName').style.display = 'block';
-            isValid = false;
-        }
-
-        if (!validateEmail(email.value)) {
-            document.getElementById('error-email').style.display = 'block';
-            isValid = false;
-        }
-
-        if (!validatePhone(phone.value)) {
-            document.getElementById('error-phone').style.display = 'block';
-            isValid = false;
-        }
-
-        if (!isValid) {
+        if (!validateStep6()) {
             return;
         }
 
@@ -291,6 +264,140 @@ document.addEventListener('DOMContentLoaded', function () {
         const re = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/;
         return re.test(String(phone).replace(/\D/g, ''));
     }
+
+    // Step validation functions
+    function validateStep1() {
+        const zipInput = document.getElementById('zip');
+        const zipError = document.getElementById('error-zip');
+        
+        if (zipInput.value.match(/^\d{5}$/)) {
+            zipError.style.display = 'none';
+            zipInput.classList.remove('error');
+            return true;
+        } else {
+            zipError.style.display = 'block';
+            zipInput.classList.add('error');
+            return false;
+        }
+    }
+
+    function validateStep2() {
+        const projectScope = document.querySelector('input[name="WindowsProjectScope"]:checked');
+        
+        if (!projectScope) {
+            // You could add a visual indicator here if needed
+            alert('Please select whether you need to replace or repair your windows.');
+            return false;
+        }
+        return true;
+    }
+
+    function validateStep3() {
+        const numberOfWindows = document.querySelector('input[name="NumberOfWindows"]:checked');
+        
+        if (!numberOfWindows) {
+            // You could add a visual indicator here if needed
+            alert('Please select how many windows you need work on.');
+            return false;
+        }
+        return true;
+    }
+
+    function validateStep4() {
+        const addressInput = document.getElementById('address');
+        const addressError = document.getElementById('error-address');
+
+        if (addressInput.value.trim().length >= 5) {
+            addressError.style.display = 'none';
+            addressInput.classList.remove('error');
+            return true;
+        } else {
+            addressError.style.display = 'block';
+            addressInput.classList.add('error');
+            return false;
+        }
+    }
+
+    function validateStep5() {
+        const firstName = document.getElementById('firstName');
+        const lastName = document.getElementById('lastName');
+        const firstNameError = document.getElementById('error-firstName');
+        const lastNameError = document.getElementById('error-lastName');
+
+        // Hide all errors first
+        firstNameError.style.display = 'none';
+        lastNameError.style.display = 'none';
+        firstName.classList.remove('error');
+        lastName.classList.remove('error');
+
+        let isValid = true;
+
+        if (!firstName.value.trim() || firstName.value.trim().length < 2) {
+            firstNameError.style.display = 'block';
+            firstName.classList.add('error');
+            isValid = false;
+        }
+
+        if (!lastName.value.trim() || lastName.value.trim().length < 2) {
+            lastNameError.style.display = 'block';
+            lastName.classList.add('error');
+            isValid = false;
+        }
+
+        return isValid;
+    }
+
+    function validateStep6() {
+        const firstName = document.getElementById('firstName');
+        const lastName = document.getElementById('lastName');
+        const email = document.getElementById('email');
+        const phone = document.getElementById('phone');
+
+        document.querySelectorAll('.form-group-error-message').forEach(error => {
+            error.style.display = 'none';
+        });
+
+        // Remove error classes from all inputs
+        [firstName, lastName, email, phone].forEach(input => {
+            if (input) input.classList.remove('error');
+        });
+
+        let isValid = true;
+
+        if (!firstName.value.trim() || firstName.value.trim().length < 2) {
+            document.getElementById('error-firstName').style.display = 'block';
+            firstName.classList.add('error');
+            isValid = false;
+        }
+
+        if (!lastName.value.trim() || lastName.value.trim().length < 2) {
+            document.getElementById('error-lastName').style.display = 'block';
+            lastName.classList.add('error');
+            isValid = false;
+        }
+
+        if (!validateEmail(email.value)) {
+            document.getElementById('error-email').style.display = 'block';
+            email.classList.add('error');
+            isValid = false;
+        }
+
+        if (!validatePhone(phone.value)) {
+            document.getElementById('error-phone').style.display = 'block';
+            phone.classList.add('error');
+            isValid = false;
+        }
+
+        return isValid;
+    }
+
+    // Make validation functions available globally
+    window.validateStep1 = validateStep1;
+    window.validateStep2 = validateStep2;
+    window.validateStep3 = validateStep3;
+    window.validateStep4 = validateStep4;
+    window.validateStep5 = validateStep5;
+    window.validateStep6 = validateStep6;
 });
 
 // Make showStep available globally
