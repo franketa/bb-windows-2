@@ -199,6 +199,31 @@ document.addEventListener('DOMContentLoaded', function () {
     const step4Button = document.getElementById('step4-button');
     if (step4Button) {
         step4Button.addEventListener('click', function () {
+            // Check if location edit form is visible and handle ZIP update
+            const locationEditForm = document.getElementById('location-edit-form');
+            const editZipInput = document.getElementById('edit-zip');
+            const editZipError = document.getElementById('error-edit-zip');
+            
+            if (locationEditForm && locationEditForm.style.display === 'block') {
+                const newZip = editZipInput.value;
+                
+                if (newZip.match(/^\d{5}$/)) {
+                    // Update the ZIP in step 1
+                    document.getElementById('zip').value = newZip;
+                    
+                    // Update location text
+                    updateLocationText(newZip);
+                    
+                    // Hide edit form and show indicator
+                    editZipError.style.display = 'none';
+                    locationEditForm.style.display = 'none';
+                    document.getElementById('location-indicator').style.display = 'flex';
+                } else {
+                    editZipError.style.display = 'block';
+                    return; // Don't proceed if ZIP is invalid
+                }
+            }
+            
             if (validateStep4()) {
                 this.querySelector('.btn-spinner').style.display = 'inline-block';
 
@@ -214,8 +239,6 @@ document.addEventListener('DOMContentLoaded', function () {
     const locationIndicator = document.getElementById('location-indicator');
     const locationEditForm = document.getElementById('location-edit-form');
     const editZipInput = document.getElementById('edit-zip');
-    const updateLocationBtn = document.getElementById('update-location-btn');
-    const cancelLocationBtn = document.getElementById('cancel-location-btn');
     const locationText = document.getElementById('location-text');
     const editZipError = document.getElementById('error-edit-zip');
 
@@ -229,35 +252,6 @@ document.addEventListener('DOMContentLoaded', function () {
             locationIndicator.style.display = 'none';
             locationEditForm.style.display = 'block';
             editZipInput.focus();
-        });
-    }
-
-    if (updateLocationBtn) {
-        updateLocationBtn.addEventListener('click', function() {
-            const newZip = editZipInput.value;
-            
-            if (newZip.match(/^\d{5}$/)) {
-                // Update the ZIP in step 1
-                document.getElementById('zip').value = newZip;
-                
-                // Update location text (you can add ZIP to city mapping here)
-                updateLocationText(newZip);
-                
-                // Hide edit form and show indicator
-                editZipError.style.display = 'none';
-                locationEditForm.style.display = 'none';
-                locationIndicator.style.display = 'flex';
-            } else {
-                editZipError.style.display = 'block';
-            }
-        });
-    }
-
-    if (cancelLocationBtn) {
-        cancelLocationBtn.addEventListener('click', function() {
-            editZipError.style.display = 'none';
-            locationEditForm.style.display = 'none';
-            locationIndicator.style.display = 'flex';
         });
     }
 

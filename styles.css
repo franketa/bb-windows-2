@@ -325,21 +325,7 @@ body {
   border: 1px solid var(--border-color);
 }
 
-.location-edit-input-group {
-  display: flex;
-  gap: var(--spacing-sm);
-  align-items: flex-start;
-}
 
-.location-edit-input-group .form-input {
-  flex: 1;
-}
-
-.btn-small {
-  padding: var(--spacing-sm) var(--spacing-md);
-  font-size: var(--font-size-sm);
-  min-width: auto;
-}
 
 /* Visual Options Grid */
 .visual-options-grid {
@@ -751,7 +737,7 @@ body {
   }
   
   .step-inner {
-    padding: var(--spacing-xl) var(--spacing-md);
+    padding: var(--spacing-md) var(--spacing-md);
   }
   
   .visual-options-grid {
