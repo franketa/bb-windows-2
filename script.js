@@ -14,15 +14,20 @@ function showStep(stepNumber) {
     // Handle hero content visibility
     const heroTitle = document.querySelector('.hero-content h1');
     const serviceIcons = document.querySelector('.service-icons');
+    const logoIcon = document.querySelector('.logo-icon');
     
     if (stepNumber === 1) {
         // Show hero title and service icons on step 1
         if (heroTitle) heroTitle.style.display = '';
         if (serviceIcons) serviceIcons.style.display = '';
+        // Reset logo size on step 1
+        if (logoIcon) logoIcon.style.height = '25px';
     } else {
         // Hide hero title and service icons on other steps
         if (heroTitle) heroTitle.style.display = 'none';
         if (serviceIcons) serviceIcons.style.display = 'none';
+        // Reduce logo size from step 2 onwards
+        if (logoIcon) logoIcon.style.height = '20px';
     }
 }
 
