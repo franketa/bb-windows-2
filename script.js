@@ -69,25 +69,31 @@ document.addEventListener('DOMContentLoaded', function () {
         error.style.display = 'none';
     });
 
-    // Function to update location text based on ZIP code
+    // Function to update location text based on ZIP code using external API
     function updateLocationText(zipCode) {
         const locationText = document.getElementById('location-text');
-        if (locationText) {
-            // Simple ZIP to location mapping - you can expand this
-            const zipToLocation = {
-                '20001': 'Washington, DC',
-                '20002': 'Washington, DC',
-                '20003': 'Washington, DC',
-                '10001': 'New York, NY',
-                '10002': 'New York, NY',
-                '90210': 'Beverly Hills, CA',
-                '90211': 'Beverly Hills, CA',
-                // Add more mappings as needed
-            };
+        if (locationText && zipCode && zipCode.length === 5) {
+            // Show loading state
+            locationText.textContent = 'Loading...';
             
-            // Use mapped location or show ZIP code with generic format
-            const location = zipToLocation[zipCode] || `ZIP ${zipCode}`;
-            locationText.textContent = location;
+            // Use Zippopotam.us API - free, no API key required
+            fetch(`https://api.zippopotam.us/us/${zipCode}`)
+                .then(response => {
+                    if (response.ok) {
+                        return response.json();
+                    }
+                    throw new Error('ZIP code not found');
+                })
+                .then(data => {
+                    // Extract city and state from response
+                    const city = data.places[0]['place name'];
+                    const state = data.places[0]['state abbreviation'];
+                    locationText.textContent = `${city}, ${state}`;
+                })
+                .catch(error => {
+                    // Fallback if API fails or ZIP not found
+                    locationText.textContent = `ZIP ${zipCode}`;
+                });
         }
     }
 
