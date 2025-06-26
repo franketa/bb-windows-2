@@ -69,6 +69,28 @@ document.addEventListener('DOMContentLoaded', function () {
         error.style.display = 'none';
     });
 
+    // Function to update location text based on ZIP code
+    function updateLocationText(zipCode) {
+        const locationText = document.getElementById('location-text');
+        if (locationText) {
+            // Simple ZIP to location mapping - you can expand this
+            const zipToLocation = {
+                '20001': 'Washington, DC',
+                '20002': 'Washington, DC',
+                '20003': 'Washington, DC',
+                '10001': 'New York, NY',
+                '10002': 'New York, NY',
+                '90210': 'Beverly Hills, CA',
+                '90211': 'Beverly Hills, CA',
+                // Add more mappings as needed
+            };
+            
+            // Use mapped location or show ZIP code with generic format
+            const location = zipToLocation[zipCode] || `ZIP ${zipCode}`;
+            locationText.textContent = location;
+        }
+    }
+
     // Step 1: ZIP Code validation
     document.getElementById('step1-button').addEventListener('click', function () {
         const zipInput = document.getElementById('zip');
@@ -86,6 +108,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 setTimeout(() => {
             if (zipInput.value.match(/^\d{5}$/)) {
                 zipError.style.display = 'none';
+                updateLocationText(zipInput.value);
                 showStep(2);
             } else {
                 zipError.style.display = 'block';
@@ -184,6 +207,64 @@ document.addEventListener('DOMContentLoaded', function () {
                     this.querySelector('.btn-spinner').style.display = 'none';
                 }, 300);
             }
+        });
+    }
+
+    // Location indicator functionality
+    const locationIndicator = document.getElementById('location-indicator');
+    const locationEditForm = document.getElementById('location-edit-form');
+    const editZipInput = document.getElementById('edit-zip');
+    const updateLocationBtn = document.getElementById('update-location-btn');
+    const cancelLocationBtn = document.getElementById('cancel-location-btn');
+    const locationText = document.getElementById('location-text');
+    const editZipError = document.getElementById('error-edit-zip');
+
+    if (locationIndicator) {
+        locationIndicator.addEventListener('click', function() {
+            // Get the current ZIP value from step 1
+            const currentZip = document.getElementById('zip').value;
+            editZipInput.value = currentZip;
+            
+            // Show the edit form and hide the indicator
+            locationIndicator.style.display = 'none';
+            locationEditForm.style.display = 'block';
+            editZipInput.focus();
+        });
+    }
+
+    if (updateLocationBtn) {
+        updateLocationBtn.addEventListener('click', function() {
+            const newZip = editZipInput.value;
+            
+            if (newZip.match(/^\d{5}$/)) {
+                // Update the ZIP in step 1
+                document.getElementById('zip').value = newZip;
+                
+                // Update location text (you can add ZIP to city mapping here)
+                updateLocationText(newZip);
+                
+                // Hide edit form and show indicator
+                editZipError.style.display = 'none';
+                locationEditForm.style.display = 'none';
+                locationIndicator.style.display = 'flex';
+            } else {
+                editZipError.style.display = 'block';
+            }
+        });
+    }
+
+    if (cancelLocationBtn) {
+        cancelLocationBtn.addEventListener('click', function() {
+            editZipError.style.display = 'none';
+            locationEditForm.style.display = 'none';
+            locationIndicator.style.display = 'flex';
+        });
+    }
+
+    // Format edit ZIP input
+    if (editZipInput) {
+        editZipInput.addEventListener('input', function (e) {
+            this.value = this.value.replace(/[^0-9]/g, '');
         });
     }
 

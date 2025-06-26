@@ -38,6 +38,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  min-height: 56px;
 }
 
 .back-arrow {
@@ -304,10 +305,40 @@ body {
   border-radius: var(--border-radius);
   font-size: var(--font-size-sm);
   color: var(--text-color-light);
+  cursor: pointer;
+  transition: all var(--transition-smooth);
+}
+
+.location-indicator:hover {
+  background: var(--border-color);
 }
 
 .location-text {
   font-weight: var(--font-weight-medium);
+}
+
+.location-edit-form {
+  margin-top: var(--spacing-sm);
+  padding: var(--spacing-md);
+  background: var(--bg-color-light);
+  border-radius: var(--border-radius);
+  border: 1px solid var(--border-color);
+}
+
+.location-edit-input-group {
+  display: flex;
+  gap: var(--spacing-sm);
+  align-items: flex-start;
+}
+
+.location-edit-input-group .form-input {
+  flex: 1;
+}
+
+.btn-small {
+  padding: var(--spacing-sm) var(--spacing-md);
+  font-size: var(--font-size-sm);
+  min-width: auto;
 }
 
 /* Visual Options Grid */
@@ -372,7 +403,7 @@ body {
   display: flex;
   background: var(--bg-color-light);
   border-radius: var(--border-radius-full);
-  padding: 4px;
+  padding: 0px 4px;
   max-width: 320px;
   margin: 0 auto;
   border: 2px solid var(--border-color);
@@ -404,7 +435,6 @@ body {
   align-items: center;
   justify-content: center;
   height: 44px;
-  border-radius: var(--border-radius-full);
   font-size: var(--font-size-base);
   font-weight: var(--font-weight-semibold);
   color: var(--text-color-light);
@@ -420,7 +450,6 @@ body {
 .number-option input[type="radio"]:checked + .number-option-text {
   background: var(--bg-color-white);
   color: var(--primary-color);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   font-weight: var(--font-weight-bold);
 }
 

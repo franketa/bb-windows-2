@@ -212,9 +212,21 @@
                                             <input class="form-input" name="address" id="address" type="text" 
                                                    required placeholder="123 Your St.">
                                         </div>
-                                        <div class="location-indicator">
-                                            <span class="location-text">Washington, DC</span>
+                                        <div class="location-indicator" id="location-indicator">
+                                            <span class="location-text" id="location-text">Washington, DC</span>
                                             <i class="fas fa-edit"></i>
+                                        </div>
+                                        <div class="location-edit-form" id="location-edit-form" style="display: none;">
+                                            <div class="form-group">
+                                                <label for="edit-zip" class="field-label">Change ZIP Code</label>
+                                                <div class="form-input-group location-edit-input-group">
+                                                    <input class="form-input" name="edit-zip" id="edit-zip" type="text" 
+                                                           pattern="[0-9]*" maxlength="5" placeholder="ZIP Code">
+                                                    <button class="btn btn-primary btn-small" type="button" id="update-location-btn">Update</button>
+                                                    <button class="btn btn-back btn-small" type="button" id="cancel-location-btn">Cancel</button>
+                                                </div>
+                                                <p id="error-edit-zip" class="form-group-error-message">Please enter a valid ZIP code.</p>
+                                            </div>
                                         </div>
                                         <p id="error-address" class="form-group-error-message">Please enter your street address.</p>
                                     </div>
