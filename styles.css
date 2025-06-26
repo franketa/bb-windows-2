@@ -717,7 +717,6 @@ body {
   }
   
   .visual-options-grid {
-    flex-direction: column;
     align-items: center;
   }
   
