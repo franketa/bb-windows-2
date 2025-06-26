@@ -30,7 +30,6 @@ body {
 /* Header */
 .site-header {
   background: var(--bg-color-white);
-  padding: var(--spacing-md) 0;
   position: relative;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
@@ -159,7 +158,7 @@ body {
 /* Progress Indicator */
 .progress-container {
   background: var(--bg-color-light);
-  padding: var(--spacing-lg);
+  padding: var(--spacing-md);
   border-bottom: 1px solid var(--border-color);
 }
 
@@ -250,7 +249,8 @@ body {
 }
 
 .privacy-note {
-  font-size: var(--font-size-xs);
+  font-size: 9px;
+  font-style: italic;
   color: var(--text-color-lighter);
   font-weight: var(--font-weight-normal);
   margin-left: var(--spacing-xs);
@@ -389,10 +389,9 @@ body {
   content: '';
   position: absolute;
   right: 0;
-  top: 50%;
-  transform: translateY(-50%);
+  top: 0;
+  bottom: 0;
   width: 1px;
-  height: 24px;
   background: var(--border-color);
 }
 
@@ -483,11 +482,11 @@ body {
 /* Why Ask Section */
 .why-ask-section {
   display: flex;
-  gap: var(--spacing-md);
-  padding: var(--spacing-lg);
+  gap: var(--spacing-sm);
+  padding: var(--spacing-md);
   background: #fef3cd;
   border-radius: var(--border-radius-lg);
-  margin: var(--spacing-lg) 0;
+  margin: var(--spacing-sm) 0;
   text-align: left;
 }
 
@@ -706,7 +705,6 @@ body {
 
   .hero-content {
     text-align: center;
-    margin-bottom: var(--spacing-lg);
   }
 
   .hero-content h1 {
