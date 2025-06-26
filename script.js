@@ -98,6 +98,14 @@ document.addEventListener('DOMContentLoaded', function () {
     // ZIP code input formatting
     document.getElementById('zip').addEventListener('input', function (e) {
         this.value = this.value.replace(/[^0-9]/g, '');
+        
+        // Hide hero content when user starts typing
+        const heroContent = document.querySelector('.hero-content');
+        if (heroContent && this.value.length > 0) {
+            heroContent.style.display = 'none';
+        } else if (heroContent && this.value.length === 0) {
+            heroContent.style.display = '';
+        }
     });
 
     // Step 2: Visual option cards (Replace/Repair)
