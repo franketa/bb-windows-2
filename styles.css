@@ -711,33 +711,25 @@ body {
   .hero-banner .container {
     flex-direction: column;
     height: 100vh;
-    justify-content: space-between;
   }
 
   .hero-content {
-    text-align: center;
-  }
-
-  .hero-content h1 {
-    font-size: var(--font-size-xxl);
-  }
-  
-  .service-icons {
     display: none;
   }
   
   .form-container {
-    margin: 0 var(--spacing-md);
+    margin: 0;
     min-width: auto;
     border: none;
     display: flex;
     flex-direction: column;
-    height: 100%;
-    justify-content: space-between;
+    height: 100vh;
+    padding: var(--spacing-md);
   }
   
   .progress-container {
     flex-shrink: 0;
+    margin-bottom: var(--spacing-lg);
   }
   
   .step.active {
@@ -747,7 +739,13 @@ body {
   }
   
   .step-inner {
-    padding: var(--spacing-md);
+    padding: 0;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .step-content {
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -757,6 +755,7 @@ body {
   .step-navigation {
     margin-top: auto;
     flex-shrink: 0;
+    padding-top: var(--spacing-lg);
   }
   
   .visual-options-grid {
