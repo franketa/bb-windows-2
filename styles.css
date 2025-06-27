@@ -706,7 +706,7 @@ body {
 @media (max-width: 768px) {
   .hero-banner {
     min-height: auto;
-    padding: var(--spacing-xl) 0;
+    padding: var(--spacing-md) 0;
   }
 
   .hero-banner .container {
