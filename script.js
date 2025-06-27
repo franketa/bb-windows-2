@@ -32,16 +32,13 @@ function showStep(stepNumber) {
 }
 
 function updateProgress(currentStep) {
-    const progressDots = document.querySelectorAll('.progress-dot');
-    const progressLines = document.querySelectorAll('.progress-line');
-
-    progressDots.forEach((dot, index) => {
-        dot.classList.toggle('active', index + 1 <= currentStep);
-    });
-
-    progressLines.forEach((line, index) => {
-        line.classList.toggle('active', index < currentStep - 1);
-    });
+    const progressFill = document.getElementById('progress-fill');
+    
+    if (progressFill) {
+        // Calculate percentage: each step is 1/6 of the total (16.67%)
+        const percentage = (currentStep / 6) * 100;
+        progressFill.style.width = `${percentage}%`;
+    }
 }
 
 function updateHeaderBackArrow(currentStep) {
