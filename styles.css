@@ -14,7 +14,7 @@ body {
   font-size: var(--font-size-base);
   line-height: 1.6;
   color: var(--text-color);
-  background: var(--gradient-background);
+  background: var(--bg-color-white);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -79,6 +79,7 @@ body {
   padding: var(--spacing-xxxl) 0;
   position: relative;
   min-height: 80vh;
+  background: var(--bg-color-white);
 }
 
 .hero-banner .container {
@@ -98,7 +99,7 @@ body {
 .hero-content h1 {
   font-size: var(--font-size-xxxl);
   font-weight: var(--font-weight-bold);
-  color: var(--text-color-white);
+  color: var(--text-color);
   margin-bottom: var(--spacing-lg);
 }
 
@@ -115,13 +116,14 @@ body {
 
 .service-icon {
   text-align: center;
-  color: var(--text-color-white);
+  color: var(--text-color);
 }
 
 .icon-circle {
   width: 60px;
   height: 60px;
-  background: rgba(255, 255, 255, 0.2);
+  background: var(--bg-color-light);
+  border: 2px solid var(--border-color);
   border-radius: var(--border-radius-full);
   display: flex;
   align-items: center;
@@ -167,12 +169,12 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: var(--spacing-sm);
+  gap: var(--spacing-xs);
 }
 
 .progress-dot {
-  width: 12px;
-  height: 12px;
+  width: 40px;
+  height: 8px;
   border-radius: var(--border-radius-full);
   background: var(--border-color);
   transition: all var(--transition-smooth);
@@ -183,7 +185,7 @@ body {
 }
 
 .progress-line {
-  width: 40px;
+  width: 20px;
   height: 2px;
   background: var(--border-color);
   transition: all var(--transition-smooth);
@@ -708,6 +710,13 @@ body {
 }
 
 /* Responsive Design */
+@media (max-width: 1024px) {
+  /* Hide header on tablet and mobile */
+  .site-header {
+    display: none;
+  }
+}
+
 @media (max-width: 768px) {
   .hero-banner {
     min-height: auto;
