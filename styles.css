@@ -736,6 +736,8 @@ body {
     flex: 1;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
+    min-height: 0;
   }
   
   .step-inner {
@@ -743,6 +745,7 @@ body {
     flex: 1;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
   }
   
   .step-content {
@@ -753,7 +756,6 @@ body {
   }
   
   .step-navigation {
-    margin-top: auto;
     flex-shrink: 0;
     padding-top: var(--spacing-lg);
   }
