@@ -150,6 +150,7 @@ body {
   min-width: 400px;
   flex-shrink: 0;
   border: 1px solid rgba(255, 255, 255, 0.2);
+  margin-bottom: 80px;
 }
 
 /* Form Structure */
@@ -198,6 +199,7 @@ body {
 
 .step-inner {
   padding: var(--spacing-xxxl) var(--spacing-xl);
+  padding-bottom: var(--spacing-lg);
 }
 
 .step-content {
@@ -311,8 +313,6 @@ body {
   border-radius: var(--border-radius);
   border: 1px solid var(--border-color);
 }
-
-
 
 /* Visual Options Grid */
 .visual-options-grid {
@@ -528,6 +528,25 @@ body {
   margin-top: var(--spacing-xl);
 }
 
+/* Sticky Bottom Navigation */
+.sticky-navigation {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--bg-color-white);
+  border-top: 1px solid var(--border-color);
+  padding: var(--spacing-md);
+  z-index: 1000;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.sticky-navigation .step-navigation {
+  max-width: 1200px;
+  margin: 0 auto;
+  margin-top: 0;
+}
+
 /* Buttons */
 .btn {
   display: inline-flex;
@@ -706,11 +725,12 @@ body {
   .hero-banner {
     min-height: 100vh;
     padding: 0;
+    padding-bottom: 80px; /* Add padding for sticky nav */
   }
 
   .hero-banner .container {
     flex-direction: column;
-    height: 100vh;
+    min-height: calc(100vh - 80px); /* Adjust for sticky nav */
   }
 
   .hero-content {
@@ -721,7 +741,8 @@ body {
     margin: 0;
     min-width: auto;
     border: none;
-    height: 100vh;
+    flex: 1;
+    margin-bottom: 0; /* Remove margin on mobile since we're using padding on hero-banner */
   }
   
   #windows-quote-form {
@@ -754,13 +775,8 @@ body {
     flex: 1;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-start;
     padding: var(--spacing-lg) 0;
-  }
-  
-  .step-navigation {
-    flex-shrink: 0;
-    padding: var(--spacing-md) 0;
   }
   
   .visual-options-grid {
@@ -773,6 +789,15 @@ body {
   
   .benefits-list {
     grid-template-columns: 1fr;
+  }
+  
+  /* Sticky navigation adjustments for mobile */
+  .sticky-navigation {
+    padding: var(--spacing-md) var(--spacing-md);
+  }
+  
+  .sticky-navigation .step-navigation {
+    gap: var(--spacing-sm);
   }
 }
 
