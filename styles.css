@@ -159,9 +159,7 @@ body {
 
 /* Progress Indicator */
 .progress-container {
-  background: var(--bg-color-light);
   padding: var(--spacing-md);
-  border-bottom: 1px solid var(--border-color);
 }
 
 .progress-bar {
