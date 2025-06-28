@@ -78,7 +78,6 @@ body {
   justify-content: center;
   padding: var(--spacing-xxxl) 0;
   position: relative;
-  min-height: 80vh;
   background: var(--bg-color-white);
 }
 
@@ -692,7 +691,7 @@ body {
   color: var(--text-color);
   text-align: center;
   padding: var(--spacing-lg) 0;
-  padding-bottom: 140px; /* Add extra padding to account for sticky navigation */
+  padding-bottom: 75px; /* Add extra padding to account for sticky navigation */
   margin-top: auto;
   box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.05);
 }
@@ -722,7 +721,6 @@ body {
 
 @media (max-width: 768px) {
   .hero-banner {
-    min-height: 100vh;
     padding: 0;
     padding-bottom: 80px; /* Add padding for sticky nav */
   }
