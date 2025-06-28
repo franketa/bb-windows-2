@@ -78,16 +78,6 @@
                                         <p id="error-zip" class="form-group-error-message">Please enter a valid ZIP code.</p>
                                     </div>
                                 </div>
-                                <div class="step-navigation">
-                                    <button class="btn btn-back" type="button" style="visibility: hidden;">
-                                        <i class="fas fa-arrow-left"></i>
-                                    </button>
-                                    <button class="btn btn-primary" type="button" id="step1-button">
-                                        <span class="btn-text">Next</span>
-                                        <i class="fas fa-arrow-right"></i>
-                                        <span class="btn-spinner"></span>
-                                    </button>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -128,16 +118,6 @@
                                         </label>
                                     </div>
                                 </div>
-                                <div class="step-navigation">
-                                    <button class="btn btn-back" type="button" onclick="showStep(1)">
-                                        <i class="fas fa-arrow-left"></i>
-                                    </button>
-                                    <button class="btn btn-primary" type="button" id="step2-button">
-                                        <span class="btn-text">Next</span>
-                                        <i class="fas fa-arrow-right"></i>
-                                        <span class="btn-spinner"></span>
-                                    </button>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -175,16 +155,6 @@
                                         <strong>Why do we ask?</strong><br>
                                         This information helps local professionals to provide you with the most accurate quote.
                                     </div>
-                                </div>
-                                <div class="step-navigation">
-                                    <button class="btn btn-back" type="button" onclick="showStep(2)">
-                                        <i class="fas fa-arrow-left"></i>
-                                    </button>
-                                    <button class="btn btn-primary" type="button" id="step3-button">
-                                        <span class="btn-text">Next</span>
-                                        <i class="fas fa-arrow-right"></i>
-                                        <span class="btn-spinner"></span>
-                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -239,16 +209,6 @@
                                     <i class="fas fa-lock"></i>
                                     <span>Your information is secure</span>
                                 </div>
-                                <div class="step-navigation">
-                                    <button class="btn btn-back" type="button" onclick="showStep(3)">
-                                        <i class="fas fa-arrow-left"></i>
-                                    </button>
-                                    <button class="btn btn-primary" type="button" id="step4-button">
-                                        <span class="btn-text">Next</span>
-                                        <i class="fas fa-arrow-right"></i>
-                                        <span class="btn-spinner"></span>
-                                    </button>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -289,16 +249,6 @@
                                     <i class="fas fa-lock"></i>
                                     <span>Your information is secure</span>
                                 </div>
-                                <div class="step-navigation">
-                                    <button class="btn btn-back" type="button" onclick="showStep(4)">
-                                        <i class="fas fa-arrow-left"></i>
-                                    </button>
-                                    <button class="btn btn-primary" type="button" id="step5-button">
-                                        <span class="btn-text">Next</span>
-                                        <i class="fas fa-arrow-right"></i>
-                                        <span class="btn-spinner"></span>
-                                    </button>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -330,16 +280,6 @@
                                 <div class="optin-section">
                                     <p class="optin-text">By submitting, you authorize Modernize and up to four <a href="terms.html">home improvement companies</a>, to make marketing calls and texts to the phone number provided to discuss your home improvement project. You understand some may use auto-dialers, SMS messages, artificial and prerecorded voice messages to contact you. There is no requirement to purchase services. Please see our <a href="privacy.html">Privacy Notice</a> and <a href="terms.html">Terms of Use</a>.</p>
                                 </div>
-                                <div class="step-navigation">
-                                    <button class="btn btn-back" type="button" onclick="showStep(5)">
-                                        <i class="fas fa-arrow-left"></i>
-                                    </button>
-                                    <button class="btn btn-primary btn-get-prices" type="submit" id="submit-form">
-                                        <span class="btn-text">Get Prices</span>
-                                        <i class="fas fa-arrow-right"></i>
-                                        <span class="btn-spinner"></span>
-                                    </button>
-                                </div>
                                 <div class="bbb-accredited">
                                     <img src="https://seal-alaskabbb.bbb.org/seals/blue-seal-293-100-whitetxt-bbb-83041090.png" alt="BBB Accredited Business" class="bbb-logo">
                                 </div>
@@ -347,6 +287,20 @@
                         </div>
                     </div>
                 </form>
+                
+                <!-- Sticky Bottom Navigation -->
+                <div class="sticky-navigation" id="sticky-navigation">
+                    <div class="step-navigation">
+                        <button class="btn btn-back" type="button" id="nav-back-btn" style="display: none;">
+                            <i class="fas fa-arrow-left"></i>
+                        </button>
+                        <button class="btn btn-primary" type="button" id="nav-next-btn">
+                            <span class="btn-text" id="nav-btn-text">Next</span>
+                            <i class="fas fa-arrow-right" id="nav-btn-icon"></i>
+                            <span class="btn-spinner" id="nav-btn-spinner"></span>
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
