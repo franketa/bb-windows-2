@@ -912,6 +912,16 @@ body {
   color: #92400e;
   margin: 0;
   line-height: 1.5;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
+
+.thank-you-support strong {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  display: inline-block;
+  max-width: 100%;
 }
 
 .thank-you-cta {
@@ -965,6 +975,14 @@ body {
     padding: var(--spacing-lg);
   }
   
+  .thank-you-support {
+    padding: var(--spacing-md);
+  }
+  
+  .thank-you-support p {
+    font-size: var(--font-size-sm);
+  }
+  
   .trust-badges {
     gap: var(--spacing-md);
   }
@@ -988,5 +1006,15 @@ body {
     width: 28px;
     height: 28px;
     font-size: var(--font-size-xs);
+  }
+  
+  .thank-you-support {
+    padding: var(--spacing-sm);
+    margin-bottom: var(--spacing-xl);
+  }
+  
+  .thank-you-support p {
+    font-size: var(--font-size-xs);
+    line-height: 1.4;
   }
 }
