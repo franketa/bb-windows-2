@@ -337,8 +337,8 @@ body {
 
 .visual-option-content {
   padding: var(--spacing-sm);
-  border: 2px solid var(--border-color);
-  border-radius: var(--border-radius-lg);
+  border: 3px solid var(--border-color);
+  border-radius: 4px;
   text-align: center;
   transition: all var(--transition-smooth);
   background: var(--bg-color-white);
@@ -777,6 +777,13 @@ body {
     flex-direction: column;
     justify-content: flex-start;
     padding: var(--spacing-lg) 0;
+  }
+
+  #step1 .form-group {
+    max-width: 200px;
+  }
+  #step1 .field-label {
+    font-weight: bold!important;
   }
   
   .visual-options-grid {
