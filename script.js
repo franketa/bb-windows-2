@@ -83,10 +83,16 @@ function updateStickyNavigation(currentStep) {
     const navBtnText = document.getElementById('nav-btn-text');
     const navBtnIcon = document.getElementById('nav-btn-icon');
     const navBtnSpinner = document.getElementById('nav-btn-spinner');
+    const navLegalSection = document.getElementById('nav-legal-section');
     
     // Show/hide back button
     if (navBackBtn) {
         navBackBtn.style.display = currentStep > 1 ? 'block' : 'none';
+    }
+    
+    // Show/hide legal section (opt-in and BBB) only on step 6
+    if (navLegalSection) {
+        navLegalSection.style.display = currentStep === 6 ? 'block' : 'none';
     }
     
     // Update next button text and type based on step
