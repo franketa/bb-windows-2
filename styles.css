@@ -519,10 +519,14 @@ body {
 /* Step Navigation */
 .step-navigation {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
   gap: var(--spacing-md);
   margin-top: var(--spacing-xl);
+}
+
+.step-navigation.has-back-button {
+  justify-content: space-between;
 }
 
 /* Sticky Bottom Navigation */

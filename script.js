@@ -84,10 +84,17 @@ function updateStickyNavigation(currentStep) {
     const navBtnIcon = document.getElementById('nav-btn-icon');
     const navBtnSpinner = document.getElementById('nav-btn-spinner');
     const navLegalSection = document.getElementById('nav-legal-section');
+    const stepNavigation = document.querySelector('.step-navigation');
     
-    // Show/hide back button
-    if (navBackBtn) {
-        navBackBtn.style.display = currentStep > 1 ? 'block' : 'none';
+    // Show/hide back button and update navigation layout
+    if (navBackBtn && stepNavigation) {
+        if (currentStep > 1) {
+            navBackBtn.style.display = 'block';
+            stepNavigation.classList.add('has-back-button');
+        } else {
+            navBackBtn.style.display = 'none';
+            stepNavigation.classList.remove('has-back-button');
+        }
     }
     
     // Show/hide legal section (opt-in and BBB) only on step 6
