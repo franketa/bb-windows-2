@@ -74,11 +74,10 @@ body {
 .hero-banner {
   flex: 1;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-items: start;
+  justify-content: start;
   padding: var(--spacing-xxxl) 0;
   position: relative;
-  min-height: 80vh;
   background: var(--bg-color-white);
 }
 
@@ -160,9 +159,7 @@ body {
 
 /* Progress Indicator */
 .progress-container {
-  background: var(--bg-color-light);
   padding: var(--spacing-md);
-  border-bottom: 1px solid var(--border-color);
 }
 
 .progress-bar {
@@ -694,6 +691,7 @@ body {
   color: var(--text-color);
   text-align: center;
   padding: var(--spacing-lg) 0;
+  padding-bottom: 75px; /* Add extra padding to account for sticky navigation */
   margin-top: auto;
   box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.05);
 }
@@ -723,14 +721,12 @@ body {
 
 @media (max-width: 768px) {
   .hero-banner {
-    min-height: 100vh;
     padding: 0;
     padding-bottom: 80px; /* Add padding for sticky nav */
   }
 
   .hero-banner .container {
     flex-direction: column;
-    min-height: calc(100vh - 80px); /* Adjust for sticky nav */
   }
 
   .hero-content {
@@ -825,5 +821,207 @@ body {
   .number-option-text {
     height: 40px;
     font-size: var(--font-size-sm);
+  }
+}
+
+/* Thank You Page Styles */
+.thank-you-container {
+  text-align: center;
+  padding: var(--spacing-xxl) var(--spacing-lg);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.thank-you-icon {
+  margin-bottom: var(--spacing-lg);
+}
+
+.thank-you-icon i {
+  font-size: 60px;
+  color: var(--success-color);
+  animation: fadeIn 0.8s ease-out;
+}
+
+.thank-you-title {
+  font-size: var(--font-size-xxl);
+  font-weight: var(--font-weight-bold);
+  color: var(--text-color);
+  margin-bottom: var(--spacing-lg);
+  line-height: 1.2;
+}
+
+.thank-you-message {
+  font-size: var(--font-size-md);
+  color: var(--text-color-light);
+  margin-bottom: var(--spacing-xxl);
+  line-height: 1.6;
+}
+
+.thank-you-details {
+  text-align: left;
+  background: var(--bg-color-light);
+  border-radius: var(--border-radius-lg);
+  padding: var(--spacing-xl);
+  margin-bottom: var(--spacing-xxl);
+}
+
+.thank-you-details h3 {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  color: var(--text-color);
+  margin-bottom: var(--spacing-lg);
+  text-align: center;
+}
+
+.thank-you-steps {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+}
+
+.thank-you-step {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-md);
+}
+
+.step-number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background: var(--primary-color);
+  color: var(--text-color-white);
+  border-radius: 50%;
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-sm);
+  flex-shrink: 0;
+}
+
+.thank-you-step p {
+  font-size: var(--font-size-base);
+  color: var(--text-color);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.thank-you-support {
+  background: #fef3cd;
+  border-radius: var(--border-radius-lg);
+  padding: var(--spacing-lg);
+  margin-bottom: var(--spacing-xxl);
+  border-left: 4px solid #f59e0b;
+}
+
+.thank-you-support p {
+  font-size: var(--font-size-base);
+  color: #92400e;
+  margin: 0;
+  line-height: 1.5;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
+
+.thank-you-support strong {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  display: inline-block;
+  max-width: 100%;
+}
+
+.thank-you-cta {
+  margin-top: var(--spacing-xl);
+}
+
+.thank-you-cta .btn {
+  padding: var(--spacing-md) var(--spacing-xxl);
+  font-size: var(--font-size-md);
+}
+
+/* Trust Badges */
+.trust-badges {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-lg);
+  margin-top: var(--spacing-lg);
+  flex-wrap: wrap;
+}
+
+.trust-badge {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  font-size: var(--font-size-sm);
+  color: var(--text-color-light);
+  background: var(--bg-color-light);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--border-radius);
+}
+
+.trust-badge i {
+  color: var(--success-color);
+}
+
+/* Mobile adjustments for thank you page */
+@media (max-width: 768px) {
+  .thank-you-container {
+    padding: var(--spacing-xl) var(--spacing-md);
+  }
+  
+  .thank-you-icon i {
+    font-size: 48px;
+  }
+  
+  .thank-you-title {
+    font-size: var(--font-size-xl);
+  }
+  
+  .thank-you-details {
+    padding: var(--spacing-lg);
+  }
+  
+  .thank-you-support {
+    padding: var(--spacing-md);
+  }
+  
+  .thank-you-support p {
+    font-size: var(--font-size-sm);
+  }
+  
+  .trust-badges {
+    gap: var(--spacing-md);
+  }
+  
+  .trust-badge {
+    font-size: var(--font-size-xs);
+    padding: var(--spacing-xs);
+  }
+}
+
+@media (max-width: 480px) {
+  .thank-you-steps {
+    gap: var(--spacing-md);
+  }
+  
+  .thank-you-step {
+    gap: var(--spacing-sm);
+  }
+  
+  .step-number {
+    width: 28px;
+    height: 28px;
+    font-size: var(--font-size-xs);
+  }
+  
+  .thank-you-support {
+    padding: var(--spacing-sm);
+    margin-bottom: var(--spacing-xl);
+  }
+  
+  .thank-you-support p {
+    font-size: var(--font-size-xs);
+    line-height: 1.4;
   }
 }
