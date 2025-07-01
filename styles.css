@@ -207,18 +207,18 @@ body {
   font-size: var(--font-size-xl);
   font-weight: var(--font-weight-bold);
   color: var(--text-color);
-  margin-bottom: var(--spacing-md);
+  margin-bottom: var(--spacing-sm);
   line-height: 1.3;
 }
 
 .step-subtitle {
   font-size: var(--font-size-base);
   color: var(--text-color-light);
-  margin-bottom: var(--spacing-md);
+  margin-bottom: var(--spacing-sm);
 }
 
 .step-fields {
-  margin-bottom: var(--spacing-md);
+  margin-bottom: var(--spacing-sm);
 }
 
 /* Form Fields */
@@ -554,7 +554,6 @@ body {
 
 .nav-legal-section .optin-section {
   margin: 0 0 var(--spacing-sm) 0;
-  padding: var(--spacing-sm);
   text-align: center;
 }
 
