@@ -45,7 +45,6 @@ check_root() {
 
 
 
-# Setup repository
 
 # Detect deployment type
 detect_deployment_type() {
@@ -267,7 +266,6 @@ main() {
     log "Starting deployment process..."
     
     check_root
-    setup_repository
     
     DEPLOYMENT_TYPE=$(detect_deployment_type)
     log "Detected deployment type: $DEPLOYMENT_TYPE"
