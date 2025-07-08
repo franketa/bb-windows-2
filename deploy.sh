@@ -96,13 +96,13 @@ deploy_static() {
         log "Creating Nginx configuration..."
         cat > "$NGINX_SITE" << EOF
 server {
-    listen 80 default_server;
-    listen [::]:80 default_server;
+    listen 80;
+    listen [::]:80;
     
     root $REPO_DIR;
     index index.html index.htm;
     
-    server_name _;
+    server_name windows.dbs-testing.com;
     
     # Gzip compression
     gzip on;
@@ -190,10 +190,10 @@ deploy_nodejs() {
         log "Creating Nginx reverse proxy configuration..."
         cat > "$NGINX_SITE" << EOF
 server {
-    listen 80 default_server;
-    listen [::]:80 default_server;
+    listen 80;
+    listen [::]:80;
     
-    server_name _;
+    server_name windows.dbs-testing.com;
     
     # Gzip compression
     gzip on;
