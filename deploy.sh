@@ -46,33 +46,6 @@ check_root() {
 
 
 # Setup repository
-setup_repository() {
-    log "Setting up repository..."
-    
-    if [ ! -d "$REPO_DIR" ]; then
-        log "Creating application directory..."
-        mkdir -p "$REPO_DIR"
-    fi
-    
-    cd "$REPO_DIR"
-    
-    # Check if it's a git repository
-    if [ ! -d ".git" ]; then
-        error "Not a git repository. Please initialize git first:"
-        error "cd $REPO_DIR && git init && git remote add origin YOUR_REPO_URL"
-        exit 1
-    fi
-    
-    # Pull latest changes
-    log "Pulling latest changes from git..."
-    git fetch origin
-    git reset --hard origin/main 2>/dev/null || git reset --hard origin/master 2>/dev/null || {
-        error "Failed to pull from main/master branch"
-        exit 1
-    }
-    
-    success "Git pull completed"
-}
 
 # Detect deployment type
 detect_deployment_type() {
