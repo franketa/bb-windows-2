@@ -6,10 +6,10 @@
 set -e  # Exit on any error
 
 # Configuration
-APP_NAME="bigbrains-form"
-REPO_DIR="/var/www/bigbrains-form-creator"
-NGINX_SITE="/etc/nginx/sites-available/bigbrains-form"
-LOG_FILE="/var/log/bigbrains-deploy.log"
+APP_NAME="bb-windows-2
+REPO_DIR="/var/www/bb-windows-2"
+NGINX_SITE="/etc/nginx/sites-available/bb-windows-2
+LOG_FILE="/var/log/bb-windows-2.log"
 
 # Colors for output
 RED='\033[0;31m'
