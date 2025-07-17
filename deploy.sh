@@ -102,7 +102,7 @@ server {
     root $REPO_DIR;
     index index.html index.htm;
     
-    server_name windows.dbs-testing.com;
+    server_name windows2.homeprosusa.org;
     
     # Gzip compression
     gzip on;
@@ -193,7 +193,7 @@ server {
     listen 80;
     listen [::]:80;
     
-    server_name windows.dbs-testing.com;
+    server_name windows2.homeprosusa.org;
     
     # Gzip compression
     gzip on;
