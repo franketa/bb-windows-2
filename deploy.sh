@@ -6,10 +6,10 @@
 set -e  # Exit on any error
 
 # Configuration
-APP_NAME="bigbrains-form"
-REPO_DIR="/var/www/bigbrains-form-creator"
-NGINX_SITE="/etc/nginx/sites-available/bigbrains-form"
-LOG_FILE="/var/log/bigbrains-deploy.log"
+APP_NAME="bb-windows-2"
+REPO_DIR="/var/www/bb-windows-2"
+NGINX_SITE="/etc/nginx/sites-available/bb-windows-2"
+LOG_FILE="/var/log/bb-windows-2.log"
 
 # Colors for output
 RED='\033[0;31m'
@@ -96,13 +96,13 @@ deploy_static() {
         log "Creating Nginx configuration..."
         cat > "$NGINX_SITE" << EOF
 server {
-    listen 80 default_server;
-    listen [::]:80 default_server;
+    listen 80;
+    listen [::]:80;
     
     root $REPO_DIR;
     index index.html index.htm;
     
-    server_name _;
+    server_name windows.dbs-testing.com;
     
     # Gzip compression
     gzip on;
@@ -190,10 +190,10 @@ deploy_nodejs() {
         log "Creating Nginx reverse proxy configuration..."
         cat > "$NGINX_SITE" << EOF
 server {
-    listen 80 default_server;
-    listen [::]:80 default_server;
+    listen 80;
+    listen [::]:80;
     
-    server_name _;
+    server_name windows.dbs-testing.com;
     
     # Gzip compression
     gzip on;
@@ -207,7 +207,7 @@ server {
     add_header X-Content-Type-Options "nosniff" always;
     
     location / {
-        proxy_pass http://localhost:3000;
+        proxy_pass http://localhost:3001;
         proxy_http_version 1.1;
         proxy_set_header Upgrade \$http_upgrade;
         proxy_set_header Connection 'upgrade';

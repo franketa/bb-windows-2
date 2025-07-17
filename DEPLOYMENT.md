@@ -21,14 +21,14 @@ sudo npm install -g pm2
 ### Step 3: Start your application
 ```bash
 # Start with PM2
-pm2 start server.js --name "bigbrains-form"
+pm2 start server.js --name "bb-windows-2"
 pm2 startup
 pm2 save
 ```
 
 ### Step 4: Configure Nginx as reverse proxy
 ```bash
-sudo nano /etc/nginx/sites-available/bigbrains-form
+sudo nano /etc/nginx/sites-available/bb-windows-2
 ```
 
 Add this configuration:
@@ -72,10 +72,10 @@ sudo ufw enable
 ```bash
 # Check application status
 pm2 status
-pm2 logs bigbrains-form
+pm2 logs bb-windows-2
 
 # Restart application
-pm2 restart bigbrains-form
+pm2 restart bb-windows-2
 ```
 
 ### For Nginx:
@@ -92,8 +92,8 @@ sudo tail -f /var/log/nginx/error.log
 
 ### Upload files via Git (if you have a repository):
 ```bash
-git clone https://github.com/yourusername/bigbrains-form-creator.git
-cd bigbrains-form-creator
+git clone https://github.com/yourusername/bb-windows-2.git
+cd bb-windows-2
 ```
 
 ### Test your deployment:
@@ -118,12 +118,12 @@ For automated deployments, use the included `deploy.sh` script:
 1. **Upload your files to the server:**
 ```bash
 # Create the directory
-sudo mkdir -p /var/www/bigbrains-form
-cd /var/www/bigbrains-form
+sudo mkdir -p /var/www/bb-windows-2
+cd /var/www/bb-windows-2
 
 # Initialize git and add your remote repository
 sudo git init
-sudo git remote add origin https://github.com/yourusername/bigbrains-form-creator.git
+sudo git remote add origin https://github.com/yourusername/bb-windows-2.git
 sudo git pull origin main
 
 # Make deploy script executable
