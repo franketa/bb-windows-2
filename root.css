@@ -1,12 +1,12 @@
 :root {
-  /* Color Palette - Purple/Magenta Theme */
-  --primary-color: #7c3aed;
-  --primary-color-dark: #5b21b6;
-  --primary-color-light: rgba(124, 58, 237, 0.05);
-  --primary-color-transparent: rgba(124, 58, 237, 0.2);
-  --accent-color: #a855f7;
-  --gradient-primary: linear-gradient(135deg, #7c3aed 0%, #a855f7 100%);
-  --gradient-background: linear-gradient(135deg, #7c3aed 0%, #8b5cf6 50%, #a855f7 100%);
+  /* Color Palette - Blue Theme */
+  --primary-color: #143a67;
+  --primary-color-dark: #0d2a4a;
+  --primary-color-light: rgba(20, 58, 103, 0.05);
+  --primary-color-transparent: rgba(20, 58, 103, 0.2);
+  --accent-color: #1e4a8a;
+  --gradient-primary: linear-gradient(135deg, #143a67 0%, #1e4a8a 100%);
+  --gradient-background: linear-gradient(135deg, #143a67 0%, #1e5aa0 50%, #1e4a8a 100%);
   
   /* Neutral Colors */
   --text-color: #1f2937;
