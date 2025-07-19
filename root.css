@@ -1,12 +1,12 @@
 :root {
   /* Color Palette - Blue Theme */
-  --primary-color: #143a67;
-  --primary-color-dark: #0d2a4a;
-  --primary-color-light: rgba(20, 58, 103, 0.05);
-  --primary-color-transparent: rgba(20, 58, 103, 0.2);
-  --accent-color: #1e4a8a;
-  --gradient-primary: linear-gradient(135deg, #143a67 0%, #1e4a8a 100%);
-  --gradient-background: linear-gradient(135deg, #143a67 0%, #1e5aa0 50%, #1e4a8a 100%);
+  --primary-color: #306FB6;
+  --primary-color-dark: #1e4a8a;
+  --primary-color-light: rgba(48, 111, 182, 0.05);
+  --primary-color-transparent: rgba(48, 111, 182, 0.2);
+  --accent-color: #4a7cba;
+  --gradient-primary: linear-gradient(135deg, #306FB6 0%, #4a7cba 100%);
+  --gradient-background: linear-gradient(135deg, #306FB6 0%, #5a8cc0 50%, #4a7cba 100%);
   
   /* Neutral Colors */
   --text-color: #1f2937;
