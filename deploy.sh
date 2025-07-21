@@ -193,7 +193,7 @@ server {
     listen 80;
     listen [::]:80;
     
-    server_name windows2.homeprosusa.org;
+    server_name getwindows-2.homeprosusa.org;
     
     # Gzip compression
     gzip on;
