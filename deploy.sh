@@ -102,7 +102,7 @@ server {
     root $REPO_DIR;
     index index.html index.htm;
     
-    server_name windows2.homeprosusa.org;
+    server_name getwindows-2.homeprosusa.org;
     
     # Gzip compression
     gzip on;
